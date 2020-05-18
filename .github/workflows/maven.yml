@@ -17,9 +17,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: set directory
-      run: cd t1
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: cd t1 && mvn -B package --file pom.xml
     - name: jbehave
       run: mvn integration-test
