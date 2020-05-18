@@ -18,12 +18,7 @@ public class QuadraticFunctionSteps extends Steps {
         quadraticFunction = new QuadraticFunction();
     }
 
-    @When("Set values a = $a, b = $b, c = $c")
-    public void whenSetValues(@Named("a") double a, @Named("b") double b, @Named("c") double c) {
-        quadraticFunction.setA(a);
-        quadraticFunction.setB(b);
-        quadraticFunction.setC(c);
-    }
+
 
     @Then("Got 2 solutions $x1 and $2")
     public void thenGot2Solutions(@Named("x1") double x1, @Named("x2") double x2) {
@@ -35,7 +30,7 @@ public class QuadraticFunctionSteps extends Steps {
         );
     }
 
-    @Then("Got 1 solution $x1")
+    @Then("Got 1 solution $x")
     public void thenGot1Solution(@Named("x") double x) {
         quadraticFunction.calc();
         assertAll(
@@ -47,6 +42,13 @@ public class QuadraticFunctionSteps extends Steps {
     @Then("Got exception")
     public void thenGotException() {
         assertThrows(Exception.class, () -> quadraticFunction.calc());
+    }
+
+    @When("Set values a = $a, b = $b, c = $c")
+    public void whenSetValues(@Named("a") double a, @Named("b") double b, @Named("c") double c) {
+        quadraticFunction.setA(a);
+        quadraticFunction.setB(b);
+        quadraticFunction.setC(c);
     }
 
 }
