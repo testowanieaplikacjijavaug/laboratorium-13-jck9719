@@ -20,4 +20,4 @@ jobs:
     - name: Build with Maven
       run: cd t1 && mvn -B package --file pom.xml
     - name: jbehave
-      run: mvn integration-test
+      run: cd t1 && mvn integration-test
